@@ -16,65 +16,67 @@ Telefon: \SupplierPhone ~--~ Webové stránky : \SupplierWebsite ~--~ Email : \S
 
 \begin{document}
 
-% Company logo
-%\includegraphics{logo.jpg}
-
 \begin{center}
+    % Company logo
+    %\includegraphics{logo.jpg}
     \Large\textbf{{\InvoiceName} č. {\InvoiceNumber}}\\
 \end{center}
 
-Dodavatel
-Jméno: \SupplierName\\
-Sídlo: \SupplierAddress\\
-IČO: \SupplierID\\
-Zapsal: \SupplierRegistered\\
-DIČ: \SupplierVATID
+\vspace{0.5in}
 
-{\addtolength{\leftskip}{10.5cm} %in ERT
-	\textbf{\ClientName}	\\
-	\ClientAdress		\\
+\begin{center}
+    \begin{tabular}{lr|lr}
+        \multicolumn{2}{c}{\large\textbf{Dodavatel}} &
+        \multicolumn{2}{c}{\large\textbf{Objednavatel}}\\
+        \hline
+        Jméno:  & \SupplierName &
+        Jméno:  & \ClientName\\
+        Sídlo:  & \makecell[r]{\SupplierAddress} &
+        Sídlo:  & \makecell[r]{\ClientAddress}\\
+        IČO:    & \SupplierID &
+        IČO:    & \ClientID\\
+        Zapsal: & \SupplierRegistered &
+         & \\
+        DIČ:    & \SupplierVATID &
+        DIČ:    & \ClientVATID\\
+        \hline
+    \end{tabular}
+\end{center}
 
-} %in ERT
-
-\hspace*{10.5cm}
-\InvoiceLocation, dne \today
-
-~\\~\\
+\vspace{1in}
 
 \textbf{Předmět fakturace:}
 
 \textnormal{\InvoiceObject}
 
-%~\\
-\vspace{30mm}
+\vspace{1in}
 
 \begin{center}
-	\begin{tabular}{lrrr}
-        \textbf{Účel ~~~~~~}	& \textbf{Cena (Kč)}	& \textbf{Počet}	& \textbf{Celkem (Kč)}	\\
-		\hline
-		\PostResult{}
-	\end{tabular}
+    \begin{tabular}{lrrr}
+        \textbf{Účel} & \textbf{Cena (Kč)} & \textbf{Počet} & \textbf{Celkem (Kč)}\\
+        \hline
+        \PostResult{}
+    \end{tabular}
 \end{center}
 
-%~\\
-\vspace{50mm}
+\textbf{\InvoiceLocation}, dne \textbf{\today}.
+
+\vspace{1in}
 
 \ifthenelse{\equal{\InvoiceAcknowledged}{yes}}{
-	Invoice acknowledged
-}{
-    
+    Platba evidována
+    }{
     Platba bankovním převodem
 
-	\begin{center}
-		\begin{tabular}{|c c c c|}
-			\hline 	\textbf{Kód banky}	& \textbf{Code guichet}	& \textbf{Nº de Compte}		& \textbf{Clé RIB}	\\
-					00000					& 00000		 			& 00000000000				& 00				\\
-			\hline 	\textbf{IBAN Nº}		& \multicolumn{3}{|l|}{ XX00 0000 0000 0000 0000 0000 000 } 		\\
-			\hline 	\textbf{Code BIC}		& \multicolumn{3}{|l|}{ XXXXXXXXXXX } 		\\
-			\hline
-		\end{tabular}
-	\end{center}
-
+    \begin{center}
+        \begin{tabular}{|l|c|r|}
+            \hline
+            \textbf{Ćíslo účtu}	& \textbf{Variabilní symbol} & \textbf{Zpráva}\\
+            \hline
+            \SupplierBankAccount & \InvoiceNumber & \ClientName\\
+            \hline
+        \end{tabular}
+    \end{center}
 }
 
 \end{document}
