@@ -2,7 +2,7 @@ LATEX = pdflatex
 
 OBJDIR = build
 
-TARGET = $(OBJDIR)/faktura.pdf
+TARGET = $(OBJDIR)/invoice.pdf
 
 all: $(TARGET)
 
