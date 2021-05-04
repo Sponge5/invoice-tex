@@ -1,15 +1,19 @@
-LATEX=pdflatex
+LATEX = pdflatex
 
-all: world clean
+SRCDIR = src
+OBJDIR = build
+
+MAIN = $(SRCDIR)/faktura.tex
+
+TARGET = $(OBJDIR)/faktura.pdf
+
+all: $(TARGET)
+
+$(TARGET): $(MAIN) | $(OBJDIR)
+	$(LATEX) -output-directory $(OBJDIR) $<
+
+$(OBJDIR):
+	mkdir -p $@
 
 clean:
-	rm -rf *.log *.aux
-
-flush:
-	rm -rf *.pdf
-
-world: *.pdf
-
-%.pdf: %.tex
-	$(LATEX) $<
-
+	rm -rf $(OBJDIR)
