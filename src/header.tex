@@ -25,7 +25,7 @@
 	\eaddto\ListProjects{#1	&	\price	&	#2	&	\total	\cr}
 }
 
-\newcommand{\PostResult}{%
+\newcommand{\PostResult}{
 	\ListProjects
 	
 	\FPeval{\TotalVAT}{\TotalAmount * \VAT / 100}
@@ -47,10 +47,10 @@
 }
 
 \newcommand*\eaddto[2]{% custom version of \addto
-   \edef\tmp{#2}%
+   \edef\tmp{#2}
    \expandafter\addto
    \expandafter#1%
-   \expandafter{\tmp}%
+   \expandafter{\tmp}
 } 
 
 \newcommand{\ListProjects}{}
