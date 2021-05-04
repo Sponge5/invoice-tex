@@ -1,4 +1,4 @@
-\documentclass[french,11pt]{article}
+\documentclass[czech,11pt]{article}
 \usepackage{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -13,17 +13,17 @@
 \def\TotalHT{0}
 \def\TotalTVA{0}
 
-\newcommand{\AjouterProduit}[3]{%	Arguments : Désignation, quantité, prix unitaire HT
+\newcommand{\AddProject}[3]{%	Arguments : Désignation, quantité, prix unitaire HT
 	\FPround{\prix}{#3}{2}
 	\FPeval{\montant}{#2 * #3}
 	\FPround{\montant}{\montant}{2}
 	\FPadd{\TotalHT}{\TotalHT}{\montant}
 	
-	\eaddto\ListeProduits{#1	&	\prix	&	#2	&	\montant	\cr}
+	\eaddto\ListProjects{#1	&	\prix	&	#2	&	\montant	\cr}
 }
 
-\newcommand{\AfficheResultat}{%
-	\ListeProduits
+\newcommand{\PostResult}{%
+	\ListProjects
 	
 	\FPeval{\TotalTVA}{\TotalHT * \TVA / 100}
 	\FPadd{\TotalTTC}{\TotalHT}{\TotalTVA}
@@ -43,12 +43,12 @@
     {\small TVA non applicable, art 293 B du CGI}
 }
 
-\newcommand*\eaddto[2]{% version développée de \addto
+\newcommand*\eaddto[2]{% custom version of \addto
    \edef\tmp{#2}%
    \expandafter\addto
    \expandafter#1%
    \expandafter{\tmp}%
 } 
 
-\newcommand{\ListeProduits}{}
+\newcommand{\ListProjects}{}
 

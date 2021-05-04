@@ -21,47 +21,47 @@ Dispensé d'immatriculation au registre du commerce et des sociétés et au rép
 
 \begin{document}
 
-% Logo de la société
+% Company logo
 %\includegraphics{logo.jpg}
 
-% Nom et adresse de la société
+% Name and address of company
 Otto Entre-Preneur \\
 27 rue glacière
 75013 Paris
 
-Facture nº\FactureNum
+Faktura č. \InvoiceNumber
 
 {\addtolength{\leftskip}{10.5cm} %in ERT
-	\textbf{\ClientNom}	\\
-	\ClientAdresse		\\
+	\textbf{\ClientName}	\\
+	\ClientAdress		\\
 
 } %in ERT
 
 \hspace*{10.5cm}
-\FactureLieu, le \today
+\InvoiceLocation, dne \today
 
 ~\\~\\
 
-\textbf{Objet : \FactureObjet \\}
+\textbf{Předmět fakturace:}
 
-\textnormal{\FactureDescr}
+\textnormal{\InvoiceObject}
 
 %~\\
 \vspace{30mm}
 
 \begin{center}
 	\begin{tabular}{lrrr}
-		\textbf{Désignation ~~~~~~}	& \textbf{Prix unitaire}	& \textbf{Quantité}	& \textbf{Montant (EUR)}	\\
+        \textbf{Účel ~~~~~~}	& \textbf{Fakturovaná částka}	& \textbf{Počet}	& \textbf{Cena (Kč)}	\\
 		\hline
-		\AfficheResultat{}
+		\PostResult{}
 	\end{tabular}
 \end{center}
 
 %~\\
 \vspace{50mm}
 
-\ifthenelse{\equal{\FactureAcquittee}{oui}}{
-	Facture acquittée.
+\ifthenelse{\equal{\InvoiceAcknowledged}{yes}}{
+	Invoice acknowledged
 }{
 
 	À régler par chèque ou par virement bancaire :
