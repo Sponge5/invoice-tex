@@ -19,7 +19,7 @@ Telefon: \SupplierPhone ~--~ Webové stránky : \SupplierWebsite ~--~ Email : \S
 \begin{center}
     % Company logo
     %\includegraphics{logo.jpg}
-    \Large\textbf{{\InvoiceName} č. {\InvoiceNumber}}\\
+    \Large\textbf{{\InvoiceName} č. {\InvoiceNumber}}
 \end{center}
 
 \vspace{0.25in}
@@ -35,8 +35,8 @@ Telefon: \SupplierPhone ~--~ Webové stránky : \SupplierWebsite ~--~ Email : \S
         Sídlo:  & \makecell[r]{\ClientAddress}\\
         IČO:    & \SupplierID &
         IČO:    & \ClientID\\
-        Zapsal: & \SupplierRegistered &
-         & \\
+        Zapsal: & \makecell[r]{\SupplierRegistered} &
+                & \\
         DIČ:    & \SupplierVATID &
         DIČ:    & \ClientVATID\\
         \hline
@@ -80,6 +80,5 @@ Telefon: \SupplierPhone ~--~ Webové stránky : \SupplierWebsite ~--~ Email : \S
 \vspace{0.5in}
 
 \textbf{\InvoiceLocation}, dne \textbf{\today}.
-
 
 \end{document}
