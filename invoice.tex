@@ -1,29 +1,34 @@
 \input{src/header.tex}
 
 % Meta
+\def\InvoiceName        {Faktura - daňový doklad}
 \def\InvoiceNumber		{Číslo faktury}
-\def\InvoiceAcknowledged{no}
-\def\InvoiceLocation	{Místo faktury}
-\def\InvoiceObject      {%
+\def\InvoiceAcknowledged{yes}
+\def\InvoiceLocation	{Místo fakturace}
+\def\InvoiceObject      {
     Předmět fakturace
 }
 
 % Supplier info
 \def\SupplierName       {Jméno dodavatele}
 \def\SupplierAddress    {Adresa dodavatele}
+\def\SupplierPhone      {Telefonní číslo dodavatele}
+\def\SupplierWebsite    {Webové stránky dodavatele}
+\def\SupplierEmail      {Email dodavatele}
 \def\SupplierID         {IČO dodavatele}
 \def\SupplierRegistered {Registrace dodavatele}
 \def\SupplierVATID      {DIČ dodavatele}
-\def\SupplierAccount    {Číslo účtu dodavatele}
+\def\SupplierBankAccount{Číslo účtu dodavatele}
 
 % Client info
-\def\ClientName{Noé Navigations}
-\def\ClientAdress{%
+\def\ClientName         {Jméno klienta}
+\def\ClientAdress{
     Adresa\newline
     Klienta
 }
 
 % List invoiced projects: Project designation, number, price
-\AddProject	{Fakturovaný projekt}		{1}		{420000}
+\AddProject{Fakturovaná práce}{1}{35000}
+\AddProject{Fakturovaný materiál}{2}{2000}
 
 \input{src/footer.tex}

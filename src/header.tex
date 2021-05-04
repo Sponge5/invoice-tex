@@ -2,45 +2,46 @@
 \usepackage{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[a4paper]{geometry}
+\usepackage[a4paper,margin=1.5in]{geometry}
 \usepackage{units}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{fp}
 
-\def\TVA{0}	% Taux de la TVA
+\def\VAT{0}	% VAT percentage
 
-\def\TotalHT{0}
-\def\TotalTVA{0}
+\def\TotalAmount{0}
+\def\TotalVAT{0}
 
-\newcommand{\AddProject}[3]{%	Arguments : Désignation, quantité, prix unitaire HT
-	\FPround{\prix}{#3}{2}
-	\FPeval{\montant}{#2 * #3}
-	\FPround{\montant}{\montant}{2}
-	\FPadd{\TotalHT}{\TotalHT}{\montant}
+% Arguments: Designation, quantity, price
+\newcommand{\AddProject}[3]{
+	\FPround{\price}{#3}{2}
+	\FPeval{\total}{#2 * #3}
+	\FPround{\total}{\total}{2}
+	\FPadd{\TotalAmount}{\TotalAmount}{\total}
 	
-	\eaddto\ListProjects{#1	&	\prix	&	#2	&	\montant	\cr}
+	\eaddto\ListProjects{#1	&	\price	&	#2	&	\total	\cr}
 }
 
 \newcommand{\PostResult}{%
 	\ListProjects
 	
-	\FPeval{\TotalTVA}{\TotalHT * \TVA / 100}
-	\FPadd{\TotalTTC}{\TotalHT}{\TotalTVA}
-	\FPround{\TotalHT}{\TotalHT}{2}
-	\FPround{\TotalTVA}{\TotalTVA}{2}
+	\FPeval{\TotalVAT}{\TotalAmount * \VAT / 100}
+	\FPadd{\TotalTTC}{\TotalAmount}{\TotalVAT}
+	\FPround{\TotalAmount}{\TotalAmount}{2}
+	\FPround{\TotalVAT}{\TotalVAT}{2}
 	\FPround{\TotalTTC}{\TotalTTC}{2}
-	\global\let\TotalHT\TotalHT
-	\global\let\TotalTVA\TotalTVA
+	\global\let\TotalAmount\TotalAmount
+	\global\let\TotalVAT\TotalVAT
 	\global\let\TotalTTC\TotalTTC
 	
 	\cr \hline
-	%Total HT			& & &	\TotalHT	\cr
-	%TVA \TVA~\% 		& & &	\TotalTVA	\cr
+	%Total Amount			& & &	\TotalAmount	\cr
+	%VAT \VAT~\% 		& & &	\TotalVAT	\cr
 	%\hline \hline
-    % XXX /!\ POUR LES AUTOENTREPRENEURS TOUT EST FACTURÉ HT /!\
-	\textbf{Total HT}	& & &	\TotalHT \cr
-    {\small TVA non applicable, art 293 B du CGI}
+    % XXX /!\ POUR LES AUTOENTREPRENEURS TOUT EST FACTURÉ Amount /!\
+	\textbf{Fakturovaná částka}	& & &	\TotalAmount \cr
+    {\small VAT non applicable, art 293 B du CGI}
 }
 
 \newcommand*\eaddto[2]{% custom version of \addto

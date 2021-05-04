@@ -9,27 +9,26 @@
 \renewcommand{\headrulewidth}{0pt}
 \cfoot{
 	\small{
-Otto Entre-Preneur\\
-Telephone : +33(0)9 42 42 42 42 ~--~ Site web : http://auto-entrepreneur.fr ~--~ E-mail : otto69@mail.ru\\
-SIREN 042 101 010 ~--~ Code APE 42042}\\
-    \tiny{
-Dispensé d'immatriculation au registre du commerce et des sociétés et au répertoire des métiers
-	}
+\SupplierName\\
+Telefon: \SupplierPhone ~--~ Webové stránky : \SupplierWebsite ~--~ Email : \SupplierEmail}\\
+    \tiny{Zákonné oznámení}
 }
-
-
 
 \begin{document}
 
 % Company logo
 %\includegraphics{logo.jpg}
 
-% Name and address of company
-Otto Entre-Preneur \\
-27 rue glacière
-75013 Paris
+\begin{center}
+    \Large\textbf{{\InvoiceName} č. {\InvoiceNumber}}\\
+\end{center}
 
-Faktura č. \InvoiceNumber
+Dodavatel
+Jméno: \SupplierName\\
+Sídlo: \SupplierAddress\\
+IČO: \SupplierID\\
+Zapsal: \SupplierRegistered\\
+DIČ: \SupplierVATID
 
 {\addtolength{\leftskip}{10.5cm} %in ERT
 	\textbf{\ClientName}	\\
@@ -51,7 +50,7 @@ Faktura č. \InvoiceNumber
 
 \begin{center}
 	\begin{tabular}{lrrr}
-        \textbf{Účel ~~~~~~}	& \textbf{Fakturovaná částka}	& \textbf{Počet}	& \textbf{Cena (Kč)}	\\
+        \textbf{Účel ~~~~~~}	& \textbf{Cena (Kč)}	& \textbf{Počet}	& \textbf{Celkem (Kč)}	\\
 		\hline
 		\PostResult{}
 	\end{tabular}
@@ -63,12 +62,12 @@ Faktura č. \InvoiceNumber
 \ifthenelse{\equal{\InvoiceAcknowledged}{yes}}{
 	Invoice acknowledged
 }{
-
-	À régler par chèque ou par virement bancaire :
+    
+    Platba bankovním převodem
 
 	\begin{center}
 		\begin{tabular}{|c c c c|}
-			\hline 	\textbf{Code banque}	& \textbf{Code guichet}	& \textbf{Nº de Compte}		& \textbf{Clé RIB}	\\
+			\hline 	\textbf{Kód banky}	& \textbf{Code guichet}	& \textbf{Nº de Compte}		& \textbf{Clé RIB}	\\
 					00000					& 00000		 			& 00000000000				& 00				\\
 			\hline 	\textbf{IBAN Nº}		& \multicolumn{3}{|l|}{ XX00 0000 0000 0000 0000 0000 000 } 		\\
 			\hline 	\textbf{Code BIC}		& \multicolumn{3}{|l|}{ XXXXXXXXXXX } 		\\
