@@ -8,7 +8,7 @@
 \usepackage{fancyhdr}
 \usepackage{fp}
 \usepackage{makecell}
-
+\usepackage{advdate}
 
 \def\VAT{0}	% VAT percentage
 
@@ -41,9 +41,9 @@
 	%Total Amount			& & &	\TotalAmount	\cr
 	%VAT \VAT~\% 		& & &	\TotalVAT	\cr
 	%\hline \hline
-    % XXX /!\ POUR LES AUTOENTREPRENEURS TOUT EST FACTURÉ Amount /!\
+    % Entrepreneurs have not applied VAT
 	\textbf{Fakturovaná částka}	& & &	\TotalAmount \cr
-    {\small VAT non applicable, art 293 B du CGI}
+    {\small\emph{Nejsem plátcem DPH}}
 }
 
 \newcommand*\eaddto[2]{% custom version of \addto

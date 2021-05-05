@@ -3,9 +3,12 @@
 % Meta
 \def\InvoiceName        {Faktura - daňový doklad}
 \def\InvoiceNumber		{Číslo faktury}
+\def\InvoiceDate        {\today}
+\def\InvoiceDueDate     {\today} % +14 days
+\def\InvoiceTSDate      {Datum uskutečnění zdanitelného plnění}
 \def\InvoiceAcknowledged{no}
 \def\InvoiceLocation	{Místo fakturace}
-\def\InvoiceObject      {
+\def\InvoiceObject      {%
     Předmět\\
     fakturace
 }
@@ -16,9 +19,6 @@
     Adresa\\
     dodavatele
 }
-\def\SupplierPhone      {Telefonní číslo dodavatele}
-\def\SupplierWebsite    {Webové stránky dodavatele}
-\def\SupplierEmail      {Email dodavatele}
 \def\SupplierID         {IČO dodavatele}
 \def\SupplierRegistered {
     Registrace\\
@@ -26,6 +26,9 @@
 }
 \def\SupplierVATID      {DIČ dodavatele}
 \def\SupplierBankAccount{Číslo účtu dodavatele}
+\def\SupplierPhone      {Telefonní číslo dodavatele}
+\def\SupplierWebsite    {Webové stránky dodavatele}
+\def\SupplierEmail      {Email dodavatele}
 
 % Client info
 \def\ClientName         {Jméno objednavatele}

@@ -10,7 +10,7 @@
 \cfoot{
 	\small{
 \SupplierName\\
-Telefon: \SupplierPhone ~--~ Webové stránky : \SupplierWebsite ~--~ Email : \SupplierEmail}\\
+Telefon: \SupplierPhone ~--~ Webové stránky: \SupplierWebsite ~--~ Email: \SupplierEmail}\\
     \tiny{Zákonné oznámení}
 }
 
@@ -49,7 +49,7 @@ Telefon: \SupplierPhone ~--~ Webové stránky : \SupplierWebsite ~--~ Email : \S
 
 \textnormal{\InvoiceObject}
 
-\vspace{1in}
+\vspace{0.5in}
 
 \begin{center}
     \begin{tabular}{lrrr}
@@ -59,7 +59,19 @@ Telefon: \SupplierPhone ~--~ Webové stránky : \SupplierWebsite ~--~ Email : \S
     \end{tabular}
 \end{center}
 
-\vspace{1in}
+\vspace{0.5in}
+
+\begin{center}
+    \begin{tabular}{l|r}
+        \hline
+        Datum vystavení & \InvoiceDate\\
+        Datum splatnosti & \InvoiceDueDate\\
+        Datum uskutečnění zdanitelného plnění & \InvoiceTSDate\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\vspace{0.5in}
 
 \ifthenelse{\equal{\InvoiceAcknowledged}{yes}}{
     Platba evidována
@@ -79,6 +91,16 @@ Telefon: \SupplierPhone ~--~ Webové stránky : \SupplierWebsite ~--~ Email : \S
 
 \vspace{0.5in}
 
-\textbf{\InvoiceLocation}, dne \textbf{\today}.
+\mbox{%
+    \parbox[l]{3in}{\textbf{\InvoiceLocation}, dne \textbf{\today}.}
+    \parbox[r]{3in}{%
+\begin{tabular}{@{}p{.5in}p{2.5in}@{}}
+%\begin{tabular}{rr}
+    Podpis: & \hrulefill \\
+            & \SupplierName \\
+\end{tabular}
+}
+}
+
 
 \end{document}
