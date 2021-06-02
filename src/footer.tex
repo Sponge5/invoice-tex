@@ -14,6 +14,11 @@ Telefon: \SupplierPhone ~--~ Web: \SupplierWebsite ~--~ Email: \SupplierEmail}\\
     \tiny{Zákonné oznámení}
 }
 
+\newcommand{\centeredmulticolumnx}[3]
+    {\multicolumn{#1}
+                 {>{\centering\hsize=\dimexpr#1\hsize+#1\tabcolsep+\arrayrulewidth\relax}#2}
+                 {#3}}
+
 \begin{document}
 
 \begin{center}
@@ -25,9 +30,9 @@ Telefon: \SupplierPhone ~--~ Web: \SupplierWebsite ~--~ Email: \SupplierEmail}\\
 \vspace{0.25in}
 
 \begin{center}
-    \begin{tabular}{lr|lr}
-        \multicolumn{2}{c}{\large\textbf{Dodavatel}} &
-        \multicolumn{2}{c}{\large\textbf{Objednavatel}}\\
+    \begin{tabularx}{.9\textwidth}{Xr|Xr}
+        \centeredmulticolumnx{2}{X}{\large\textbf{Dodavatel}} &
+        \centeredmulticolumnx{2}{X}{\large\textbf{Objednavatel}}\\
         \hline
         Jméno:  & \SupplierName &
         Jméno:  & \ClientName\\
@@ -40,7 +45,7 @@ Telefon: \SupplierPhone ~--~ Web: \SupplierWebsite ~--~ Email: \SupplierEmail}\\
         DIČ:    & \SupplierVATID &
         DIČ:    & \ClientVATID\\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{center}
 
 \vspace{0.5in}
@@ -52,23 +57,24 @@ Telefon: \SupplierPhone ~--~ Web: \SupplierWebsite ~--~ Email: \SupplierEmail}\\
 \vspace{0.5in}
 
 \begin{center}
-    \begin{tabular}{lrrr}
+    \begin{tabularx}{.9\textwidth}{lXXr}
         \textbf{Položka} & \textbf{Cena (Kč)} & \textbf{Počet} & \textbf{Celkem (Kč)}\\
+        %Položka & Cena (Kč) & Počet & Celkem (Kč)\\
         \hline
         \PostResult{}
-    \end{tabular}
+    \end{tabularx}
 \end{center}
 
 \vspace{0.5in}
 
 \begin{center}
-    \begin{tabular}{l|r}
+    \begin{tabularx}{.9\textwidth}{l|X}
         \hline
         Datum vystavení & \InvoiceDate\\
         Datum splatnosti & \InvoiceDueDate\\
         Datum uskutečnění zdanitelného plnění & \InvoiceTSDate\\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{center}
 
 \vspace{0.5in}
@@ -79,13 +85,14 @@ Telefon: \SupplierPhone ~--~ Web: \SupplierWebsite ~--~ Email: \SupplierEmail}\\
     Platba bankovním převodem
 
     \begin{center}
-        \begin{tabular}{|l|c|r|}
+        \begin{tabularx}{.9\textwidth}{|X|X|X|}
             \hline
-            \textbf{Ćíslo účtu}	& \textbf{Variabilní symbol} & \textbf{Zpráva}\\
+            %\textbf{Ćíslo účtu}	& \textbf{Variabilní symbol} & \textbf{Zpráva}\\
+            Ćíslo účtu & Variabilní symbol & Zpráva\\
             \hline
             \SupplierBankAccount & \InvoiceNumber & \ClientName\\
             \hline
-        \end{tabular}
+        \end{tabularx}
     \end{center}
 }
 
@@ -95,7 +102,7 @@ Telefon: \SupplierPhone ~--~ Web: \SupplierWebsite ~--~ Email: \SupplierEmail}\\
     \parbox[l]{3in}{\textbf{\InvoiceLocation}, dne \textbf{\InvoiceDate}.}
     \parbox[r]{3in}{%
 \begin{tabular}{@{}p{.5in}p{2.5in}@{}}
-%\begin{tabular}{rr}
+%\begin{tabularx}{.8\textwidth}{rr}
     Podpis: & \hrulefill \\
             & \SupplierName \\
 \end{tabular}
